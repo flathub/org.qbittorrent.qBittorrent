@@ -6,6 +6,7 @@
   "runtime-version": "5.9",
   "command": "qbittorrent",
   "rename-icon": "qbittorrent",
+  "copy-icon": true,
   "rename-desktop-file": "qbittorrent.desktop",
   "rename-appdata-file": "qbittorrent.appdata.xml",
   "finish-args": [
