@@ -57,8 +57,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_6/libtorrent-rasterbar-1.1.6.tar.gz",
-          "sha256": "b7c74d004bd121bd6e9f8975ee1fec3c95c74044c6a6250f6b07f259f55121ef"
+          "url": "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_7/libtorrent-rasterbar-1.1.7.tar.gz",
+          "sha256": "8133bf683308decc24da22aff17437e36c522d8959bcf934e94cf7a3a567f3a9"
         }
       ]
     },
