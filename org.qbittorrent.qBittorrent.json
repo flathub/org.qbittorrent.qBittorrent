@@ -3,7 +3,7 @@
   "branch": "stable",
   "runtime": "org.kde.Platform",
   "sdk": "org.kde.Sdk",
-  "runtime-version": "5.9",
+  "runtime-version": "5.11",
   "command": "qbittorrent",
   "rename-icon": "qbittorrent",
   "copy-icon": true,
@@ -16,23 +16,27 @@
     "--share=network",
     "--device=dri",
     /* For QtSingleApplication */
-    "--filesystem=/tmp",
+    "--env=TMPDIR=/var/tmp",
     "--filesystem=host",
     "--talk-name=org.kde.StatusNotifierWatcher",
     "--talk-name=org.freedesktop.Notifications",
     "--talk-name=org.freedesktop.PowerManagement",
     "--talk-name=org.gnome.SessionManager"
   ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/lib/*.la",
+    "/share/cmake",
+    "/share/man"
+  ],
   "modules": [
     {
       "name": "boost",
       "buildsystem": "simple",
-      "cleanup": [
-        "/include"
-      ],
       "build-commands": [
-        "./bootstrap.sh",
-        "./b2 install variant=release link=shared runtime-link=shared --prefix=/app --with-system --with-chrono --with-random -j `nproc`"
+        "./bootstrap.sh --prefix=/app --with-libraries=system,chrono,random",
+        "./b2 install variant=release link=shared runtime-link=shared -j $FLATPAK_BUILDER_N_JOBS"
       ],
       "sources": [
         {
@@ -49,12 +53,6 @@
         "--with-boost=/app",
         "--with-libiconv"
       ],
-      "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
-        "/lib/*.la",
-        "/share/cmake"
-      ],
       "sources": [
         {
           "type": "archive",
@@ -68,14 +66,15 @@
       "config-opts": [
         "--with-boost=/app"
       ],
-      "cleanup": [
-        "/share/man"
-      ],
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/qbittorrent/qBittorrent/archive/release-4.1.1.tar.gz",
-          "sha256": "c12d11ebd1127b2493cfc623cc7f2ecd7cb2fd15f27a091383767d4c9b04a2d1"
+          "url": "https://github.com/qbittorrent/qBittorrent/archive/release-4.1.2.tar.gz",
+          "sha256": "ffc5210f3d2d112b4618f9fc2b8efa57684566edf63920beee03f28d66347803"
+        },
+        {
+          "type": "patch",
+          "path": "qbittorrent-4.1.2-fix-desktop-file.patch"
         }
       ]
     }
