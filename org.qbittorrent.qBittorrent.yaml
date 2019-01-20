@@ -34,8 +34,8 @@ modules:
       - ./b2 install variant=release link=shared runtime-link=shared -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz
-        sha256: bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60
+        url: https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2
+        sha256: 8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406
 
   - name: libtorrent
     config-opts:
@@ -44,8 +44,8 @@ modules:
       - --with-libiconv
     sources:
       - type: archive
-        url: https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_11/libtorrent-rasterbar-1.1.11.tar.gz
-        sha256: 7c23deba7fa279825642307587609d51c9935ac7606e0ef2f2d0ba10728b5847
+        url: https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_12/libtorrent-rasterbar-1.1.12.tar.gz
+        sha256: a5937134edf3ca8c109403a47f5a5fc93f7b8dca4e97f1a629a8c84288bee7a7
 
   - name: qbittorrent
     config-opts:
