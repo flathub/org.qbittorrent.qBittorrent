@@ -2,7 +2,7 @@ app-id: org.qbittorrent.qBittorrent
 branch: stable
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.11'
+runtime-version: '5.12'
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
