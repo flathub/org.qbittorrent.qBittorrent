@@ -6,8 +6,6 @@ runtime-version: '5.12'
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
-rename-desktop-file: qbittorrent.desktop
-rename-appdata-file: qbittorrent.appdata.xml
 finish-args:
   - --socket=wayland
   - --socket=x11
@@ -44,13 +42,13 @@ modules:
       - --with-libiconv
     sources:
       - type: archive
-        url: https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_12/libtorrent-rasterbar-1.1.12.tar.gz
-        sha256: a5937134edf3ca8c109403a47f5a5fc93f7b8dca4e97f1a629a8c84288bee7a7
+        url: https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_13/libtorrent-rasterbar-1.1.13.tar.gz
+        sha256: 30040719858e3c06634764e0c1778738eb42ecd0b45e814afa746329a948ead7
 
   - name: qbittorrent
     config-opts:
       - --with-boost=/app
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/release-4.1.5.tar.gz
-        sha256: 76c7d9c020a7d9f45f8956934dd89500b61986cc22b1e0b7a46dc1af11f11d2c
+        url: https://github.com/qbittorrent/qBittorrent/archive/release-4.1.6.tar.gz
+        sha256: 6e997e2fb662634eba97d69adf9b4d7e0def2e159bcb1d1e1fe91eadf8732b18
