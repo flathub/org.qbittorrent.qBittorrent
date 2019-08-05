@@ -50,5 +50,9 @@ modules:
       - --with-boost=/app
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/release-4.1.6.tar.gz
-        sha256: 6e997e2fb662634eba97d69adf9b4d7e0def2e159bcb1d1e1fe91eadf8732b18
+        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.1.7/qbittorrent-4.1.7.tar.xz
+        sha256: 1eef2cf930e167e7e1d2d338bf1efc0a4a38cba1211f909bc9741a7b5ff2b330
+      - type: shell
+        commands:
+          - sed -i '4i <releases><release version=\"4.1.7\" date=\"2019-08-04\"/></releases><content_rating type="oars-1.1"/>'
+            dist/unix/org.qbittorrent.qBittorrent.appdata.xml
