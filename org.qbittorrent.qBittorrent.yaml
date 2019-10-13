@@ -1,5 +1,5 @@
 app-id: org.qbittorrent.qBittorrent
-branch: stable
+default-branch: stable
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: '5.13'
