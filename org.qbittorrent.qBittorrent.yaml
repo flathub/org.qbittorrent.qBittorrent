@@ -1,5 +1,6 @@
 app-id: org.qbittorrent.qBittorrent
-default-branch: stable
+default-branch: beta
+desktop-file-name-suffix: ' (Beta)'
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: '5.13'
