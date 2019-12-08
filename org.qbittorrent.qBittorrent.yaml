@@ -38,14 +38,14 @@ modules:
         sha256: d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee
 
   - name: libtorrent
+    buildsystem: cmake-ninja
+    builddir: true
     config-opts:
-      - --disable-static
-      - --with-boost=/app
-      - --with-libiconv
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
-      - type: archive
-        url: https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_2/libtorrent-rasterbar-1.2.2.tar.gz
-        sha256: e579261d7f0acbe82e9b4ce703cb721627cb8075023f8a26405992f489bc6202
+      - type: git
+        url: https://github.com/arvidn/libtorrent.git
+        commit: 41dab1864456397ce0f110f44bc13f5a55b31b1e
 
   - name: qbittorrent
     buildsystem: qmake
