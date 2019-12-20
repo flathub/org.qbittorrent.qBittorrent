@@ -34,8 +34,8 @@ modules:
       - ./b2 install variant=release link=shared runtime-link=shared -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2
-        sha256: d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee
+        url: https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2
+        sha256: 59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722
 
   - name: libtorrent
     buildsystem: cmake-ninja
@@ -43,9 +43,9 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
-      - type: git
-        url: https://github.com/arvidn/libtorrent.git
-        commit: 41dab1864456397ce0f110f44bc13f5a55b31b1e
+      - type: archive
+        url: https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_3/libtorrent-rasterbar-1.2.3.tar.gz
+        sha256: 1582fdbbd0449bcfe4ffae2ccb9e5bf0577459a32bb25604e01accb847da1a2d
 
   - name: qbittorrent
     buildsystem: qmake
@@ -55,9 +55,9 @@ modules:
       - CONFIG+=force_debug_info
     sources:
       - type: archive
-        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.2.0/qbittorrent-4.2.0.tar.xz
-        sha256: 4ea210def748e6fadf81b3f5a2ad82134bd9b6bf6b17c8b28eaa0ca832e0b221
+        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.2.1/qbittorrent-4.2.1.tar.xz
+        sha256: a43466b4415a7a220584e0faabdaba60545f11a0be34040c64c2747c04bb3209
       - type: shell
         commands:
-          - sed -i '77i <release version="4.2.0" date="2019-12-03"/>' dist/unix/org.qbittorrent.qBittorrent.appdata.xml
+          - sed -i '77i <release version="4.2.1" date="2019-12-18"/>' dist/unix/org.qbittorrent.qBittorrent.appdata.xml
           - ./configure --prefix=/app --with-boost=/app
