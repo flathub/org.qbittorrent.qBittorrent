@@ -31,7 +31,7 @@ modules:
     buildsystem: simple
     build-commands:
       - ./bootstrap.sh --prefix=/app --with-libraries=system,chrono,random
-      - ./b2 install variant=release link=shared runtime-link=shared -j $FLATPAK_BUILDER_N_JOBS
+      - ./b2 install variant=release link=shared runtime-link=shared cxxflags="$CXXFLAGS" linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
         url: https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2
