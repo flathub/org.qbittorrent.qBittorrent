@@ -47,11 +47,10 @@ modules:
         sha256: 84b79f85ffa4e4a5f434bf5c53b0d5a63dfea17b7623143caaa695faf61b2d1b
 
   - name: qbittorrent
-    buildsystem: qmake
+    buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - CONFIG+=release
-      - CONFIG+=force_debug_info
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.2.2/qbittorrent-4.2.2.tar.xz
