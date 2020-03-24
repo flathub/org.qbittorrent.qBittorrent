@@ -56,7 +56,3 @@ modules:
       - type: archive
         url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.2.2/qbittorrent-4.2.2.tar.xz
         sha256: fa457cc6fef02fe15958f94863181e64b8dcd9762184f8a53ad4c75f89d42223
-      - type: shell
-        commands:
-          - sed -i '77i <release version="4.2.1" date="2019-12-18"/>' dist/unix/org.qbittorrent.qBittorrent.appdata.xml
-          - ./configure --prefix=/app --with-boost=/app
