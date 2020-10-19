@@ -53,6 +53,7 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
-      - type: archive
-        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.3.0/qbittorrent-4.3.0.tar.xz
-        sha256: b18b8337fef7b09151eb741defc43ef6e2764da8ede642b86a020621476191da
+      - type: git
+        url: https://github.com/qbittorrent/qBittorrent.git
+        commit: b925cffddb386b2ca10e58fc9c55d99721cfa2ff
+        tag: release-4.3.0
