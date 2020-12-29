@@ -56,4 +56,4 @@ modules:
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.3.2/qbittorrent-4.3.2.tar.xz
-        sha256: 3b62f4abfa81f080bd88db7ab9520400c773420df8af75927363560c0cc0ba46
+        sha256: b58e377a26c6de91aa61a56cddc9399c52fb9c752444c761a52784943b2b8b4b
