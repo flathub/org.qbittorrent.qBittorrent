@@ -55,5 +55,5 @@ modules:
       - -DQBT_VER_STATUS=""
     sources:
       - type: archive
-        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.3.1/qbittorrent-4.3.1.tar.xz
-        sha256: 796bd81f50b83dc6bde9a0c726137aca3df7d3385e779360b2304dfda6c151c5
+        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.3.2/qbittorrent-4.3.2.tar.xz
+        sha256: 3b62f4abfa81f080bd88db7ab9520400c773420df8af75927363560c0cc0ba46
