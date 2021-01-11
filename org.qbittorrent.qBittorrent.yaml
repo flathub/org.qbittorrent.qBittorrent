@@ -44,8 +44,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
-        url: https://github.com/arvidn/libtorrent/releases/download/v1.2.11/libtorrent-rasterbar-1.2.11.tar.gz
-        sha256: cb6a9cc3c9a9e485174394baa82744cef8415d23a357f5721dcc9ee7622c4efb
+        url: https://github.com/arvidn/libtorrent/releases/download/v1.2.12/libtorrent-rasterbar-1.2.12.tar.gz
+        sha256: c3744ac9fa41f6e6ebf79538a2ea678df76a2cbbaf3ac6ae2c05455314e5cce8
 
   - name: qbittorrent
     buildsystem: cmake-ninja
