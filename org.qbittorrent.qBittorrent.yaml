@@ -7,23 +7,23 @@ command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
 finish-args:
-  - --socket=wayland
-  - --socket=x11
-  - --share=ipc
-  - --share=network
   - --device=dri
   - --env=TMPDIR=/var/tmp # QtSingleApplication
   - --filesystem=host
-  - --talk-name=org.kde.StatusNotifierWatcher
+  - --own-name=org.kde.StatusNotifierItem-2-2
+  - --share=ipc
+  - --share=network
+  - --socket=wayland
+  - --socket=x11
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.gnome.SessionManager
-  - --own-name=org.kde.StatusNotifierItem-2-2
+  - --talk-name=org.kde.StatusNotifierWatcher
 cleanup:
   - /include
+  - /lib/*.la
   - /lib/cmake
   - /lib/pkgconfig
-  - /lib/*.la
   - /share/cmake
   - /share/man
 modules:
