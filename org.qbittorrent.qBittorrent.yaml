@@ -54,5 +54,5 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.4.5.tar.gz
-        sha256: 70c2128b44fe4df4dfc8afc765a304d70cf1b042b5214bcc855d8b3bbc9ccf36
+        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.5.0.tar.gz
+        sha256: 9c44acc3ee28a3c99067e82f57d79e001a54ef8bdf41c63a97dd04c6633ee9dc
