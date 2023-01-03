@@ -41,7 +41,12 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
+      - -DCMAKE_AR=/usr/bin/gcc-ar
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_C_FLAGS=-flto=auto
+      - -DCMAKE_CXX_FLAGS=-flto=auto
+      - -DCMAKE_RANLIB=/usr/bin/gcc-ranlib
+      - -DCMAKE_SHARED_LINKER_FLAGS=-flto=auto
       - -Ddeprecated-functions=OFF
     sources:
       - type: archive
@@ -52,7 +57,11 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
+      - -DCMAKE_AR=/usr/bin/gcc-ar
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_CXX_FLAGS=-flto=auto
+      - -DCMAKE_EXE_LINKER_FLAGS=-flto=auto
+      - -DCMAKE_RANLIB=/usr/bin/gcc-ranlib
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.5.0.tar.gz
