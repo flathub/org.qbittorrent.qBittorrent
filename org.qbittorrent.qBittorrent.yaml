@@ -42,6 +42,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -Ddeprecated-functions=OFF
     sources:
       - type: archive
         url: https://github.com/arvidn/libtorrent/releases/download/v1.2.18/libtorrent-rasterbar-1.2.18.tar.gz
