@@ -43,10 +43,8 @@ modules:
     config-opts:
       - -DCMAKE_AR=/usr/bin/gcc-ar
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DCMAKE_C_FLAGS=-flto=auto
-      - -DCMAKE_CXX_FLAGS=-flto=auto
       - -DCMAKE_RANLIB=/usr/bin/gcc-ranlib
-      - -DCMAKE_SHARED_LINKER_FLAGS=-flto=auto
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
       - -Ddeprecated-functions=OFF
     sources:
       - type: archive
@@ -59,8 +57,7 @@ modules:
     config-opts:
       - -DCMAKE_AR=/usr/bin/gcc-ar
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DCMAKE_CXX_FLAGS=-flto=auto
-      - -DCMAKE_EXE_LINKER_FLAGS=-flto=auto
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
       - -DCMAKE_RANLIB=/usr/bin/gcc-ranlib
     sources:
       - type: archive
