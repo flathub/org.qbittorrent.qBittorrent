@@ -3,62 +3,60 @@ default-branch: beta
 desktop-file-name-suffix: ' (Beta)'
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.13'
+runtime-version: '5.15-21.08'
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
 finish-args:
   - --socket=wayland
-  - --socket=x11
+  - --socket=fallback-x11
   - --share=ipc
   - --share=network
   - --device=dri
-  - --env=TMPDIR=/var/tmp # QtSingleApplication
   - --filesystem=host
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.gnome.SessionManager
+  - --own-name=org.kde.*
 cleanup:
   - /include
   - /lib/cmake
   - /lib/pkgconfig
+  - /lib/*.a
   - /lib/*.la
   - /share/cmake
   - /share/man
-modules:
 
+modules:
   - name: boost
     buildsystem: simple
     build-commands:
-      - ./bootstrap.sh --prefix=/app --with-libraries=system,chrono,random
-      - ./b2 install variant=release link=shared runtime-link=shared -j $FLATPAK_BUILDER_N_JOBS
+      - ./bootstrap.sh --prefix=/app --with-libraries=headers
+      - ./b2 install variant=release link=shared runtime-link=shared cxxflags="$CXXFLAGS" linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2
-        sha256: d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2
+        sha256: 71feeed900fbccca04a3b4f2f84a7c217186f28a940ed8b7ed4725986baf99fa
 
   - name: libtorrent
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: git
         url: https://github.com/arvidn/libtorrent.git
-        branch: socks5-buffer-overflow
+        commit: 690881fec9cc069976cd3d909254a87c22f43ce0
 
   - name: qbittorrent
-    buildsystem: qmake
+    buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - CONFIG+=release
-      - CONFIG+=force_debug_info
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
-      - type: archive
-        url: https://downloads.sourceforge.net/project/qbittorrent/qbittorrent/qbittorrent-4.2.0/qbittorrent-4.2.0.tar.xz
-        sha256: 4ea210def748e6fadf81b3f5a2ad82134bd9b6bf6b17c8b28eaa0ca832e0b221
-      - type: shell
-        commands:
-          - sed -i '77i <release version="4.2.0" date="2019-12-03"/>' dist/unix/org.qbittorrent.qBittorrent.appdata.xml
-          - ./configure --prefix=/app --with-boost=/app
+      - type: git
+        url: https://github.com/qbittorrent/qBittorrent.git
+        commit: 61dbb211c06dabef6d49fdb0af7fe0e5549e7306
