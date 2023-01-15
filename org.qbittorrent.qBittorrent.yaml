@@ -43,12 +43,13 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
+      - -DBUILD_SHARED_LIBS=OFF
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: git
         url: https://github.com/arvidn/libtorrent.git
-        commit: 690881fec9cc069976cd3d909254a87c22f43ce0
+        commit: 8253dead65e59cccc83ab8658a44efbac69b0a8a
 
   - name: qbittorrent
     buildsystem: cmake-ninja
@@ -59,4 +60,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/qbittorrent/qBittorrent.git
-        commit: 61dbb211c06dabef6d49fdb0af7fe0e5549e7306
+        commit: 8db2d04dbbdfcd3d0cbbf5e73f3ce310d83cab9f
