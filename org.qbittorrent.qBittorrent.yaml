@@ -18,7 +18,6 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.gnome.SessionManager
-  - --own-name=org.kde.*
 cleanup:
   - /include
   - /lib/cmake
