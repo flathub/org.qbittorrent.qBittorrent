@@ -8,22 +8,22 @@ command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
 finish-args:
-  - --socket=wayland
-  - --socket=fallback-x11
-  - --share=ipc
-  - --share=network
   - --device=dri
   - --filesystem=host
-  - --talk-name=org.kde.StatusNotifierWatcher
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.gnome.SessionManager
+  - --talk-name=org.kde.StatusNotifierWatcher
 cleanup:
   - /include
-  - /lib/cmake
-  - /lib/pkgconfig
   - /lib/*.a
   - /lib/*.la
+  - /lib/cmake
+  - /lib/pkgconfig
   - /share/cmake
   - /share/man
 
