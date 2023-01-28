@@ -48,7 +48,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/arvidn/libtorrent.git
-        commit: 8253dead65e59cccc83ab8658a44efbac69b0a8a
+        commit: c5be3bd9980ff4be5b2b09f55f27e21698c99870
 
   - name: qbittorrent
     buildsystem: cmake-ninja
@@ -59,4 +59,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/qbittorrent/qBittorrent.git
-        commit: 8db2d04dbbdfcd3d0cbbf5e73f3ce310d83cab9f
+        commit: d256db5072431ba530b567b685210c3636ff44db
