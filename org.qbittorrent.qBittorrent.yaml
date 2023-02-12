@@ -2,7 +2,7 @@ app-id: org.qbittorrent.qBittorrent
 default-branch: stable
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
@@ -33,7 +33,8 @@ modules:
     buildsystem: simple
     build-commands:
       - ./bootstrap.sh --prefix=/app --with-libraries=headers
-      - ./b2 install variant=release link=shared runtime-link=shared cxxflags="$CXXFLAGS" linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
+      - ./b2 install variant=release link=shared runtime-link=shared cxxflags="$CXXFLAGS"
+        linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
         url: https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2
@@ -59,8 +60,10 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/arvidn/libtorrent/releases
-          version-query: map(.tag_name | select(test("^v1[\\d\\.]+$"))) | first | sub("^v"; "")
-          url-query: '"https://github.com/arvidn/libtorrent/releases/download/v" + $version + "/libtorrent-rasterbar-" + $version + ".tar.gz"'
+          version-query: map(.tag_name | select(test("^v1[\\d\\.]+$"))) | first |
+            sub("^v"; "")
+          url-query: '"https://github.com/arvidn/libtorrent/releases/download/v" +
+            $version + "/libtorrent-rasterbar-" + $version + ".tar.gz"'
       - type: patch
         path: static_lib.patch
 
@@ -72,10 +75,12 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.5.0.tar.gz
-        sha256: 9c44acc3ee28a3c99067e82f57d79e001a54ef8bdf41c63a97dd04c6633ee9dc
+        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.5.1.tar.gz
+        sha256: 498f23fb198a245dc9783e7295a855c55b4f80beb84c48c1e6e61cae7d0785d4
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qbittorrent/qBittorrent/tags
-          version-query: map(.name | select(test("^release-[\\d\\.]+$"))) | first | sub("^release-"; "")
-          url-query: '"https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-" + $version + ".tar.gz"'
+          version-query: map(.name | select(test("^release-[\\d\\.]+$"))) | first
+            | sub("^release-"; "")
+          url-query: '"https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-"
+            + $version + ".tar.gz"'
