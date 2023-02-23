@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Network;FileTransfer;P2P;Qt;
+Exec=qbittorrent-nox %U
+GenericName=BitTorrent client
+Comment=Download and share files over BitTorrent
+Icon=qbittorrent
+Name=qBittorrent-nox
+Terminal=true
+Type=Application
+StartupNotify=false
+Keywords=bittorrent;torrent;magnet;download;p2p;

@@ -4,6 +4,8 @@ runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: 5.15-21.08
 command: qbittorrent-nox
+rename-icon: qbittorrent
+copy-icon: true
 finish-args:
   - --filesystem=host
   - --share=network
@@ -57,7 +59,7 @@ modules:
       - type: patch
         path: static_lib.patch
 
-  - name: qbittorrent
+  - name: qbittorrent-nox
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -75,3 +77,22 @@ modules:
             | sub("^release-"; "")
           url-query: '"https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-"
             + $version + ".tar.gz"'
+
+  - name: qbittorrent-nox specifics
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 qbittorrent.desktop $FLATPAK_DEST/share/applications/$FLATPAK_ID.desktop
+      - install -Dm644 qbittorrent.metainfo.xml $FLATPAK_DEST/share/metainfo/$FLATPAK_ID.metainfo.xml
+      - install -Dm644 qbittorrent.png -t $FLATPAK_DEST/share/icons/hicolor/128x128/apps
+      - install -Dm644 qbittorrent.svg -t $FLATPAK_DEST/share/icons/hicolor/scalable/apps
+    sources:
+      - type: file
+        path: qbittorrent.desktop
+      - type: file
+        path: qbittorrent.metainfo.xml
+      - type: file
+        url: https://raw.githubusercontent.com/qbittorrent/qBittorrent/master/dist/unix/menuicons/128x128/apps/qbittorrent.png
+        sha256: 0526d31b635e7b1f4748bb0e6a660b30b4d885a50e8c3f60ea9e5caf5b2c50b8
+      - type: file
+        url: https://raw.githubusercontent.com/qbittorrent/qBittorrent/master/dist/unix/menuicons/scalable/apps/qbittorrent.svg
+        sha256: 1930d0ce62e017f677d39150ee5b8746600938c5be27d75a326d631cc87a535b
