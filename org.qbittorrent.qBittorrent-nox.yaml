@@ -1,25 +1,13 @@
-app-id: org.qbittorrent.qBittorrent
+app-id: org.qbittorrent.qBittorrent-nox
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 # in order to avoid unexpected incompatibilities, only increase it with major qbt release
 # upstream: https://invent.kde.org/packaging/flatpak-kde-runtime -> org.kde.Sdk.json.in -> "branch"
 runtime-version: '6.10'
-command: qbittorrent
-rename-icon: qbittorrent
+command: qbittorrent-nox
 finish-args:
-  - --device=dri
   - --filesystem=host  # https://github.com/flathub/org.qbittorrent.qBittorrent#revise-filesystem-permission
-  - --share=ipc
   - --share=network
-  - --socket=fallback-x11
-  - --socket=wayland
-  - --system-talk-name=org.freedesktop.login1
-  - --system-talk-name=org.freedesktop.UPower
-  - --talk-name=org.ayatana.indicator.application  # for Ubuntu MATE and Trisquel
-  - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.freedesktop.PowerManagement
-  - --talk-name=org.gnome.SessionManager
-  - --talk-name=org.kde.StatusNotifierWatcher
 cleanup:
   - /include
   - /lib/*.a
@@ -63,12 +51,13 @@ modules:
           url: https://api.github.com/repos/arvidn/libtorrent/branches/RC_1_2
           commit-query: .commit.sha
 
-  - name: qbittorrent
+  - name: qbittorrent-nox
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       #- -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DGUI=OFF
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.2.0.tar.gz
@@ -84,4 +73,4 @@ modules:
   - name: testing
     buildsystem: simple
     build-commands:
-      - QT_QPA_PLATFORM=offscreen qbittorrent -v
+      - qbittorrent-nox -v
