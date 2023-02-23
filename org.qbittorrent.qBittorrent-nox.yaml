@@ -1,23 +1,11 @@
-app-id: org.qbittorrent.qBittorrent
+app-id: org.qbittorrent.qBittorrent-nox
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: '6.9'
-command: qbittorrent
-rename-icon: qbittorrent
+command: qbittorrent-nox
 finish-args:
-  - --device=dri
   - --filesystem=host
-  - --share=ipc
   - --share=network
-  - --socket=fallback-x11
-  - --socket=wayland
-  - --system-talk-name=org.freedesktop.login1
-  - --system-talk-name=org.freedesktop.UPower
-  - --talk-name=org.ayatana.indicator.application  # for Ubuntu MATE and Trisquel
-  - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.freedesktop.PowerManagement
-  - --talk-name=org.gnome.SessionManager
-  - --talk-name=org.kde.StatusNotifierWatcher
 cleanup:
   - /include
   - /lib/*.a
@@ -61,12 +49,13 @@ modules:
           url: https://api.github.com/repos/arvidn/libtorrent/branches/RC_1_2
           commit-query: .commit.sha
 
-  - name: qbittorrent
+  - name: qbittorrent-nox
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DGUI=OFF
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.1.2.tar.gz
