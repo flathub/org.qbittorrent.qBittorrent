@@ -53,6 +53,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
       - -Ddeprecated-functions=OFF
+      - -DQT6=ON
     sources:
       - type: archive
         url: https://github.com/arvidn/libtorrent/releases/download/v1.2.18/libtorrent-rasterbar-1.2.18.tar.gz
