@@ -75,8 +75,8 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.5.1.tar.gz
-        sha256: 498f23fb198a245dc9783e7295a855c55b4f80beb84c48c1e6e61cae7d0785d4
+        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.5.2.tar.gz
+        sha256: 0a3c11296b1daa6e6dd57ebb8426e0388ba7db613e54a758b201648b69702dd4
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qbittorrent/qBittorrent/tags
