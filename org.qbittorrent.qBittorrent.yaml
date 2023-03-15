@@ -3,7 +3,7 @@ default-branch: beta
 desktop-file-name-suffix: ' (Beta)'
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-22.08
+runtime-version: 6.4
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
@@ -58,6 +58,7 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DQT6=ON
     sources:
       - type: git
         url: https://github.com/qbittorrent/qBittorrent.git
