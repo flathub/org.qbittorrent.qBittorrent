@@ -3,7 +3,7 @@ default-branch: beta
 desktop-file-name-suffix: ' (Beta)'
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-22.08
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
@@ -50,7 +50,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/arvidn/libtorrent.git
-        commit: c5be3bd9980ff4be5b2b09f55f27e21698c99870
+        commit: 8cfceaecafd3a7346b5f8d38f81ef7656101fd0b
 
   - name: qbittorrent
     buildsystem: cmake-ninja
@@ -61,4 +61,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/qbittorrent/qBittorrent.git
-        commit: d256db5072431ba530b567b685210c3636ff44db
+        commit: f16e9036235b4a2b40fc429bc635cb4a6c1b0c9b
