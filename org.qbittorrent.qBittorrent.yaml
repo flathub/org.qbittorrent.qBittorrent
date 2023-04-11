@@ -42,7 +42,7 @@ modules:
         x-checker-data:
           type: html
           url: https://www.boost.org/feed/downloads.rss
-          version-pattern: <item><title>Version ([\d\.]+)</title>
+          version-pattern: <item><title>Version ([\d\.]+)<\/title>
           url-template: https://boostorg.jfrog.io/artifactory/main/release/${version}/source/boost_${major}_${minor}_${patch}.tar.bz2
 
   - name: libtorrent
