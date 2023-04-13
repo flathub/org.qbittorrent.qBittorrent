@@ -57,7 +57,7 @@ modules:
       - type: git
         url: https://github.com/arvidn/libtorrent.git
         branch: RC_1_2
-        commit: 93ecd2ff3b1766c16fef65b62b36f623654dc1f3
+        commit: 855c44be6370dc90ec1f3dff4223770dd47a5208
         #x-checker-data:
         #  type: json
         #  url: https://api.github.com/repos/arvidn/libtorrent/releases
