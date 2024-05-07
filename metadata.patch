@@ -100,7 +100,7 @@ index a24f47a6fb20..699ff0411dd1 100644
    <update_contact>sledgehammer999@qbittorrent.org</update_contact>
 -  <developer_name>The qBittorrent Project</developer_name>
 +  <developer id="org.qbittorrent">
-+    <name>The qBittorrent Project</name>
++    <name>qBittorrent</name>
 +  </developer>
    <url type="homepage">https://www.qbittorrent.org/</url>
    <url type="bugtracker">https://bugs.qbittorrent.org/</url>
