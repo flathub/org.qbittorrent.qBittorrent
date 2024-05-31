@@ -1,10 +1,10 @@
 # qBittorrent Flatpak
 
-<a href='https://flathub.org/apps/details/org.qbittorrent.qBittorrent'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.svg'/></a>
+<a href='https://flathub.org/apps/details/org.qbittorrent.qBittorrent'><img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
 
 ## Installation
 
-To install, simply click on the above 'Download on Flathub' button and follow the instructions. \
+To install, simply click the above `Get it on Flathub` button and follow the instructions. \
 In reality, 2 branches are provided:
 1. stable (default) \
    This follows the regular stable release of qBittorrent (with GUI).
