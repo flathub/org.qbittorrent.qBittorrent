@@ -1,7 +1,9 @@
 # qBittorrent Flatpak
+
 <a href='https://flathub.org/apps/details/org.qbittorrent.qBittorrent'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.svg'/></a>
 
 ## Installation
+
 To install, simply click on the above 'Download on Flathub' button and follow the instructions. \
 In reality, 2 branches are provided:
 1. stable (default) \
@@ -38,3 +40,37 @@ In reality, 2 branches are provided:
      ```shell
      sudo flatpak make-current org.qbittorrent.qBittorrent beta
      ```
+
+## Build Locally
+
+1. Add flathub repository to current user:
+   ```shell
+   flatpak remote-add \
+     --if-not-exists \
+     --user \
+     flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+   ```
+
+2. Build it:
+   ```shell
+   flatpak-builder \
+     --ccache \
+     --force-clean \
+     --install \
+     --install-deps-from=flathub \
+     --repo=repo \
+     --sandbox \
+     --user \
+     _build \
+     org.qbittorrent.qBittorrent.yaml
+   ```
+
+3. Run it:
+   ```shell
+   flatpak run org.qbittorrent.qBittorrent
+   ```
+
+4. Remove it:
+   ```shell
+   flatpak uninstall org.qbittorrent.qBittorrent
+   ```
