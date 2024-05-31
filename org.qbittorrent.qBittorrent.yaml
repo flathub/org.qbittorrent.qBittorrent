@@ -82,5 +82,3 @@ modules:
             | sub("^release-"; "")
           url-query: '"https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-"
             + $version + ".tar.gz"'
-      - type: patch
-        path: screenshots.patch
