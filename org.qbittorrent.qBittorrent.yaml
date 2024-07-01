@@ -2,7 +2,7 @@ app-id: org.qbittorrent.qBittorrent
 default-branch: stable
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-23.08
+runtime-version: 6.7
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
@@ -71,6 +71,7 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DQT6=ON
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.6.5.tar.gz
