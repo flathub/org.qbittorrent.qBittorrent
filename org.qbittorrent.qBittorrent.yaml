@@ -54,16 +54,13 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
       - -Ddeprecated-functions=OFF
     sources:
-      - type: archive
-        url: https://github.com/arvidn/libtorrent/releases/download/v1.2.19/libtorrent-rasterbar-1.2.19.tar.gz
-        sha256: eee8e99548dc5eb5e643e49db9202f4f97112c032dba883dfdc8144af5b6e40e
+      - type: git
+        url: https://github.com/arvidn/libtorrent.git  # branch RC_1_2
+        commit: 2316136434d6785bc8c5d1b03add005e1a3945a9
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/arvidn/libtorrent/releases
-          version-query: map(.tag_name | select(test("^v1[\\d\\.]+$"))) | first |
-            sub("^v"; "")
-          url-query: '"https://github.com/arvidn/libtorrent/releases/download/v" +
-            $version + "/libtorrent-rasterbar-" + $version + ".tar.gz"'
+          url: https://api.github.com/repos/arvidn/libtorrent/branches/RC_1_2
+          commit-query: .commit.sha
 
   - name: qbittorrent
     buildsystem: cmake-ninja
