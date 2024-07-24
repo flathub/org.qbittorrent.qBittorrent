@@ -48,6 +48,9 @@ modules:
   - name: libtorrent
     buildsystem: cmake-ninja
     builddir: true
+    build-options:
+      cflags: -std=c++20
+      cxxflags: -std=c++20
     config-opts:
       - -DBUILD_SHARED_LIBS=OFF
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
