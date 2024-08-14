@@ -1,5 +1,4 @@
 app-id: org.qbittorrent.qBittorrent
-default-branch: stable
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: 5.15-23.08
@@ -37,8 +36,8 @@ modules:
         linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
-        sha256: be0d91732d5b0cc6fbb275c7939974457e79b54d6f07ce2e3dfdd68bef883b0b
+        url: https://boostorg.jfrog.io/artifactory/main/release/1.86.0/source/boost_1_86_0.tar.gz
+        sha256: 2575e74ffc3ef1cd0babac2c1ee8bdb5782a0ee672b1912da40e5b4b591ca01f
         x-checker-data:
           type: html
           url: https://www.boost.org/feed/downloads.rss
