@@ -1,7 +1,7 @@
 app-id: org.qbittorrent.qBittorrent
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-23.08
+runtime-version: 6.7
 command: qbittorrent
 rename-icon: qbittorrent
 copy-icon: true
@@ -70,8 +70,8 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-4.6.7.tar.gz
-        sha256: bfda6e6d57d419ec2c61162327988ea919f55ee7a80700b3754793a6d7f3545c
+        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.0.0.tar.gz
+        sha256: 9a24a6b95e9afac826295b8203685a515b13e77eb98bb8ed21c814916b999f6e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qbittorrent/qBittorrent/tags
