@@ -36,8 +36,8 @@ modules:
         linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://archives.boost.io/release/1.86.0/source/boost_1_86_0.tar.gz
-        sha256: 2575e74ffc3ef1cd0babac2c1ee8bdb5782a0ee672b1912da40e5b4b591ca01f
+        url: https://archives.boost.io/release/1.87.0/source/boost_1_87_0.tar.gz
+        sha256: f55c340aa49763b1925ccf02b2e83f35fdcf634c9d5164a2acb87540173c741d
         x-checker-data:
           type: html
           url: https://www.boost.org/feed/downloads.rss
@@ -70,8 +70,8 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.0.3.tar.gz
-        sha256: 12dc7228b6fd1f0c184e0fd58836797b9f01fd7da89c9ff65795a031eb571759
+        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.0.4.tar.gz
+        sha256: 6c1077e51be2189189c4a0ec99402ccc88a4f43d88d8dece721cbe508460dd4b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qbittorrent/qBittorrent/tags
