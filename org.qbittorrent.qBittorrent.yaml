@@ -71,7 +71,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.0.4.tar.gz
-        sha256: 1c996194b3d28485b6e59525db7f3a0868785c27d4df304cf1c9f57176d4368a
+        sha256: 6c1077e51be2189189c4a0ec99402ccc88a4f43d88d8dece721cbe508460dd4b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qbittorrent/qBittorrent/tags
