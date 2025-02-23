@@ -7,7 +7,10 @@ rename-icon: qbittorrent
 copy-icon: true
 finish-args:
   - --device=dri
-  - --filesystem=host
+  - --filesystem=home
+  - --filesystem=/media
+  - --filesystem=/mnt
+  - --filesystem=/run/media
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
