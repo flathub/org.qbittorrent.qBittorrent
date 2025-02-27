@@ -6,7 +6,7 @@
 
 To install, simply click the above `Get it on Flathub` button and follow the instructions. \
 In reality, 2 branches are provided:
-1. stable (default) \
+1. Stable (default) \
    This follows the regular stable release of qBittorrent (with GUI).
    * To install:
      ```shell
@@ -17,7 +17,7 @@ In reality, 2 branches are provided:
      flatpak run org.qbittorrent.qBittorrent
      ```
 
-2. beta \
+2. Beta \
    This follows the latest development of qBittorrent and libtorrent-rasterbar. However, due to laziness
    it isn't updated regularly.
    * Add flathub-beta repository:
@@ -40,6 +40,14 @@ In reality, 2 branches are provided:
      ```shell
      sudo flatpak make-current org.qbittorrent.qBittorrent beta
      ```
+
+## Revise Filesystem Permission
+   In order to secure the installation, you are encouraged to remove the default `--filesystem=host` permission or reduce it to suit your need. \
+   Ideally, `host` should not be the default but it cannot be changed now as it will massively disturb a lot of existing users and seeders. \
+   To remove the permission, you can use [Flatseal](https://flathub.org/apps/com.github.tchx84.Flatseal) app or use the following command: `flatpak override --nofilesystem=host org.qbittorrent.qBittorrent` \
+   Note that there are various qBittorrent functionalities and use cases that would be easier to setup when `host` or some specific filesystem permission is granted.
+   To name a few: Run external program on torrent complete. Migrate away from flatpak qBittorrent to non-flatpak qBittorrent. \
+   Ref: https://docs.flatpak.org/en/latest/sandbox-permissions.html#filesystem-access
 
 ## Build Locally
 
