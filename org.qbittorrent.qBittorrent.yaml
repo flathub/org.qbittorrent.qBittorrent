@@ -62,11 +62,27 @@ modules:
           commit-query: .commit.sha
 
   - name: qbittorrent
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+    buildsystem: simple
+    build-commands:
+      # GUI build
+      - cmake
+        -B build
+        -G Ninja
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        -DCMAKE_INSTALL_PREFIX="/app"
+        -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - cmake --build build
+      - cmake --install build
+      # nox build
+      - cmake
+        -B build-nox
+        -G Ninja
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        -DCMAKE_INSTALL_PREFIX="/app"
+        -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+        -DGUI=OFF
+      - cmake --build build-nox
+      - cmake --install build-nox
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.1.0.tar.gz
