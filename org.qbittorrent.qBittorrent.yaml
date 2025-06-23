@@ -4,7 +4,6 @@ sdk: org.kde.Sdk
 runtime-version: '6.9'
 command: qbittorrent
 rename-icon: qbittorrent
-copy-icon: true
 finish-args:
   - --device=dri
   - --filesystem=host
