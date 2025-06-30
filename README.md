@@ -7,14 +7,18 @@
 To install, simply click the above `Get it on Flathub` button and follow the instructions. \
 In reality, 2 branches are provided:
 1. Stable (default) \
-   This follows the regular stable release of qBittorrent (with GUI).
+   This follows the regular stable release of qBittorrent.
    * To install:
      ```shell
      flatpak install flathub org.qbittorrent.qBittorrent
      ```
-   * To run:
+   * To run the default GUI version:
      ```shell
      flatpak run org.qbittorrent.qBittorrent
+     ```
+   * To run the nox version:
+     ```shell
+     flatpak run --command=qbittorrent-nox org.qbittorrent.qBittorrent
      ```
 
 2. Beta \
@@ -28,9 +32,13 @@ In reality, 2 branches are provided:
      ```shell
      flatpak install flathub-beta org.qbittorrent.qBittorrent
      ```
-   * To run:
+   * To run GUI version:
      ```shell
      flatpak run org.qbittorrent.qBittorrent//beta
+     ```
+   * To run nox version:
+     ```shell
+     flatpak run --command=qbittorrent-nox org.qbittorrent.qBittorrent//beta
      ```
    * Set stable version as the default when you invoke `flatpak run org.qbittorrent.qBittorrent`
      ```shell
