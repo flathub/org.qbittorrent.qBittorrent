@@ -1,12 +1,14 @@
 app-id: org.qbittorrent.qBittorrent
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
+# in order to avoid unexpected incompatibilities, only increase it with major qbt release
+# upstream: https://invent.kde.org/packaging/flatpak-kde-runtime -> org.kde.Sdk.json.in -> "branch"
 runtime-version: '6.10'
 command: qbittorrent
 rename-icon: qbittorrent
 finish-args:
   - --device=dri
-  - --filesystem=host
+  - --filesystem=host  # https://github.com/flathub/org.qbittorrent.qBittorrent#revise-filesystem-permission
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
