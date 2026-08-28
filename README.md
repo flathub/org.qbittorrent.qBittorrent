@@ -82,3 +82,9 @@ In reality, 2 branches are provided:
    ```shell
    flatpak uninstall org.qbittorrent.qBittorrent
    ```
+
+5. Debug shell:
+   ```shell
+   flatpak run --command=sh --devel org.qbittorrent.qBittorrent
+   ```
+   <https://docs.flatpak.org/en/latest/debugging.html>
