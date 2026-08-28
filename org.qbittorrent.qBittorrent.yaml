@@ -66,9 +66,16 @@ modules:
   - name: qbittorrent
     buildsystem: cmake-ninja
     builddir: true
+    # https://github.com/bitcoin-core/gui/issues/867
+    # workaround: when LTO is enabled and linking with Qt, it only allows `PIC`, but GCC was built with
+    # `--enable-default-pie`, which uses `PIE` by default. Therefore, we need to explicitly set `-fPIC` to
+    # ensure the correct mode.
+    build-options:
+      cflags: '-fPIC'
+      cxxflags: '-fPIC'
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      #- -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: archive
         url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.2.3.tar.gz
