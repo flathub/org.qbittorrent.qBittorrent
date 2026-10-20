@@ -3,7 +3,7 @@ runtime: org.kde.Platform
 sdk: org.kde.Sdk
 # in order to avoid unexpected incompatibilities, only increase it with major qbt release
 # upstream: https://invent.kde.org/packaging/flatpak-kde-runtime -> org.kde.Sdk.json.in -> "branch"
-runtime-version: '6.10'
+runtime-version: '6.11'
 command: qbittorrent
 rename-icon: qbittorrent
 finish-args:
@@ -37,13 +37,13 @@ modules:
       - ./b2 install --with-headers cxxflags="$CXXFLAGS" linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
     sources:
       - type: archive
-        url: https://archives.boost.io/release/1.86.0/source/boost_1_86_0.tar.gz
-        sha256: 2575e74ffc3ef1cd0babac2c1ee8bdb5782a0ee672b1912da40e5b4b591ca01f
-        #x-checker-data:
-        #  type: html
-        #  url: https://www.boost.org/feed/downloads.rss
-        #  version-pattern: <item><title>Version ([\d\.]+)<\/title>
-        #  url-template: https://archives.boost.io/release/${version}/source/boost_${major}_${minor}_${patch}.tar.gz
+        url: https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.gz
+        sha256: c4a3b310ddd2472416e091067166b0713be97c63f38c212c484ada022fd296ce
+        x-checker-data:
+          type: html
+          url: https://www.boost.org/feed/downloads.rss
+          version-pattern: <item><title>Version ([\d\.]+)<\/title>
+          url-template: https://archives.boost.io/release/${version}/source/boost_${major}_${minor}_${patch}.tar.gz
 
   - name: libtorrent
     buildsystem: cmake-ninja
@@ -55,13 +55,16 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
       - -Ddeprecated-functions=OFF
     sources:
-      - type: git
-        url: https://github.com/arvidn/libtorrent.git  # branch RC_1_2
-        commit: c5ff6c3186a92ddec01f6f0a8146aaedb4a1c3f9
+      - type: archive
+        url: https://github.com/arvidn/libtorrent/releases/download/v2.1.2/libtorrent-rasterbar-2.1.2.tar.gz
+        sha256: 3362546d9cd71b9e49ee6cac7d3f1f914ce9cdb217c86b63d5b22cbed0334dbc
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/arvidn/libtorrent/branches/RC_1_2
-          commit-query: .commit.sha
+          url: https://api.github.com/repos/arvidn/libtorrent/releases
+          version-query: map(.tag_name | select(test("^v2\\.1(?:\\.\\d+)+$"))) | first |
+            sub("^v"; "")
+          url-query: '"https://github.com/arvidn/libtorrent/releases/download/v" +
+            $version + "/libtorrent-rasterbar-" + $version + ".tar.gz"'
 
   - name: qbittorrent
     buildsystem: cmake-ninja
@@ -78,12 +81,12 @@ modules:
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     sources:
       - type: archive
-        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.2.4.tar.gz
-        sha256: 226a6ad1aa7810fcbfa58b0d28b14feb8e207726cbe774d4d267ce769c19dd6c
+        url: https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-5.3.0.tar.gz
+        sha256: dcb5273496117ebf264fc1fc7936de8707374f07dcee0805228ac5adb403a465
         x-checker-data:
           type: json
           url: https://api.github.com/repos/qbittorrent/qBittorrent/tags
-          version-query: map(.name | select(test("^release-[\\d\\.]+$"))) | first
+          version-query: map(.name | select(test("^release-\\d+(?:\\.\\d+)+$"))) | first
             | sub("^release-"; "")
           url-query: '"https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-"
             + $version + ".tar.gz"'
